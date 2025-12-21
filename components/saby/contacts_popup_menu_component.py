@@ -9,10 +9,10 @@ class ContactsPopupMenuComponent(BaseComponent):
     def __init__(self, driver: WebDriver):
         super().__init__(driver)
 
-        self.sbisru_link = Link(driver, "sbis ru", By.XPATH, "//*[@id='popup']//a[contains(@class, 'sbisru-link')]")
+        self.contacts_link = Link(driver, "contacts", By.XPATH, "//*[@id='popup']//a[contains(@class, 'sbisru-link')]")
 
     def check_visible(self):
-        self.sbisru_link.check_visible()
+        self.contacts_link.check_visible()
 
-    def click_sbisru_link(self):
-        self.sbisru_link.click()
+    def click_contacts_link(self):
+        self.contacts_link.click()
