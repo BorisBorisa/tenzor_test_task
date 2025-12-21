@@ -1,3 +1,5 @@
+import json
+
 from enum import Enum
 
 from pydantic import BaseModel
@@ -27,6 +29,13 @@ class BrowsersConfig(BaseModel):
     wait_poll_frequency: float
 
 
+class TestData(BaseModel):
+    initial_region: str
+    new_region: str
+    expected_url_part: str
+    expected_region_title_part: str
+
+
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         extra="allow",
@@ -37,6 +46,10 @@ class Settings(BaseSettings):
 
     browsers: list[Browser]
     browsers_config: BrowsersConfig
+    test_data: TestData
 
 
-settings = Settings()
+with open("./tests/data/test_data.json", encoding="utf-8") as f:
+    test_data_dict = json.load(f)
+
+settings = Settings(test_data=test_data_dict)
