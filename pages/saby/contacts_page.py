@@ -1,3 +1,5 @@
+import allure
+
 from collections import defaultdict
 
 from selenium.webdriver.remote.webdriver import WebDriver
@@ -10,6 +12,8 @@ from pages.base_page import BasePage
 from components.saby.region_select_dialog import RegionSelectDialogComponent
 
 from elements.link import Link
+
+from tools.enums.routes import Routes
 
 
 class SabyContactsPage(BasePage):
@@ -28,8 +32,10 @@ class SabyContactsPage(BasePage):
         )
         self.region_selection_dialog = RegionSelectDialogComponent(driver)
 
+    @allure.step("Check contacts page is opened")
     def is_page_opened(self):
-        pass
+        self.check_current_url(Routes.CONTACT.regex_pattern)
+        self.contact_clients_tensor_logo.check_visible()
 
     def contact_clients_tensor_logo_click(self):
         with self.waits.wait_and_switch_to_new_tab():
