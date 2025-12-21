@@ -12,7 +12,7 @@ from components.saby.region_select_dialog import RegionSelectDialogComponent
 from elements.link import Link
 
 
-class ContactsPage(BasePage):
+class SabyContactsPage(BasePage):
     CONTACT_LIST_ITEM_LOCATOR = By.XPATH, "//*[@data-qa='items-container']/*[@data-qa='item']"
     CITY_LOCATOR = By.CLASS_NAME, "sbisru-Contacts-List__city"
     PARTNER_NAME_LOCATOR = By.CLASS_NAME, "sbisru-Contacts-List__name"
