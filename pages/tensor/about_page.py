@@ -31,5 +31,9 @@ class TensorAboutPage(BasePage):
         self.header_logo.check_visible()
         self.check_current_url(Routes.ABOUT.regex_pattern)
 
+    def check_work_block_visible(self):
+        self.work_block_title.check_visible()
+        self.work_block_images.check_visible()
+
     def check_work_block_images_have_equal_dimensions(self):
         self.work_block_images.have_equal_dimensions()
