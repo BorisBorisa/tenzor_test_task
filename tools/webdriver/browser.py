@@ -3,7 +3,6 @@ from typing import Type
 from selenium.webdriver import (
     Chrome, ChromeOptions,
     Firefox, FirefoxOptions,
-    Edge, EdgeOptions
 )
 
 from selenium.webdriver.remote.webdriver import WebDriver
@@ -44,9 +43,6 @@ class FirefoxBrowser(BaseBrowser):
         super().__init__(Firefox, FirefoxOptions, settings.browsers_config.firefox_config)
 
 
-class EdgeBrowser(BaseBrowser):
-    def __init__(self):
-        super().__init__(Edge, EdgeOptions, settings.browsers_config.chromium_config)
 
 
 def get_browser_driver(browser_name: Browser) -> WebDriver:
@@ -56,7 +52,5 @@ def get_browser_driver(browser_name: Browser) -> WebDriver:
             return ChromeBrowser().create_driver()
         case Browser.FIREFOX:
             return FirefoxBrowser().create_driver()
-        case Browser.EDGE:
-            return EdgeBrowser().create_driver()
         case _:
             raise ValueError(f"Неизвестный браузер: {browser_name}")
