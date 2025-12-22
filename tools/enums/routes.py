@@ -8,4 +8,4 @@ class Routes(str, Enum):
 
     @property
     def regex_pattern(self) -> str:
-        return rf'.*/{self.value}($|/.*)'
+        return rf'.*/{self.value}($|.*)'
