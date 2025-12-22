@@ -2,5 +2,7 @@
   "initial_region": "Республика Татарстан",
   "new_region": "Камчатский край",
   "expected_url_part": "/41-kamchatskij-kraj",
-  "expected_region_title_part": "Камчатский край"
+  "expected_region_title_part": "Камчатский край",
+  "saby_desktop_for_windows_app_file_name": "saby-setup.exe",
+  "saby_desktop_for_windows_app_size": 7.02
 }

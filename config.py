@@ -34,6 +34,8 @@ class TestData(BaseModel):
     new_region: str
     expected_url_part: str
     expected_region_title_part: str
+    saby_desktop_for_windows_app_file_name: str
+    saby_desktop_for_windows_app_size: float
 
 
 class Settings(BaseSettings):
