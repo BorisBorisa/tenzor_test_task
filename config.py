@@ -1,28 +1,11 @@
 import json
 
-from enum import Enum
-
 from pydantic import BaseModel
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
-class Browser(str, Enum):
-    CHROME = "chrome"
-    EDGE = "edge"
-    FIREFOX = "firefox"
-
-
-class ChromiumConfig(BaseModel):
-    options: list[str]
-
-
-class FirefoxConfig(BaseModel):
-    options: list[str]
-
-
-class BrowsersConfig(BaseModel):
-    chromium_config: ChromiumConfig
-    firefox_config: FirefoxConfig
+class BrowserConfig(BaseModel):
+    chromium_options: list[str]
     page_load_strategy: str
     page_load_timeout: int
     wait_timeout: float
@@ -46,8 +29,7 @@ class Settings(BaseSettings):
         env_nested_delimiter=".",
     )
 
-    browsers: list[Browser]
-    browsers_config: BrowsersConfig
+    browser_config: BrowserConfig
     test_data: TestData
 
 

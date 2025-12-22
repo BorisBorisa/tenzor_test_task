@@ -15,8 +15,8 @@ class Waits:
         self.driver = driver
         self.wait = WebDriverWait(
             driver=driver,
-            timeout=settings.browsers_config.wait_timeout,
-            poll_frequency=settings.browsers_config.wait_poll_frequency
+            timeout=settings.browser_config.wait_timeout,
+            poll_frequency=settings.browser_config.wait_poll_frequency
         )
 
     def visible(self, locator) -> WebElement:
