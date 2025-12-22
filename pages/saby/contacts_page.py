@@ -62,6 +62,7 @@ class SabyContactsPage(BasePage):
 
         return partners_by_city
 
+    @allure.step("Check that partners list has changed")
     def check_has_partners_changed(self, previous_partners: dict[str, set[str]]):
         current_partners = self.get_partners_by_city()
 
