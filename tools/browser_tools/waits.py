@@ -1,3 +1,4 @@
+import os
 from contextlib import contextmanager
 
 from selenium.webdriver.remote.webelement import WebElement
@@ -55,3 +56,9 @@ class Waits:
         self.wait.until(EC.new_window_is_opened(old_handles))
         new_handle = (set(self.driver.window_handles) - old_handles).pop()
         self.driver.switch_to.window(new_handle)
+
+    @contextmanager
+    def wait_file_download(self, download_dir, file_name):
+        file_path = os.path.join(download_dir, file_name)
+        yield
+        self.wait.until(lambda driver: os.path.exists(file_path))
